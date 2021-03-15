@@ -1,34 +1,29 @@
 package main
 
 import (
-	"reflect"
+	"fmt"
 	"testing"
 )
 
-func TestMultiples(t *testing.T) {
-	maximum := 10
-	divisors := divisors{3, 5}
-
-	got := Multiples(maximum, divisors)
-	want := []int{3, 5, 6, 9}
-
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got %v want %v", got, want)
-	}
-}
-
-func TestSum(t *testing.T) {
-	got := Sum([]int{3, 5})
-	want := 8
-	if got != want {
-		t.Errorf("got %v want %v", got, want)
-	}
-}
-
 func TestSumMultiples(t *testing.T) {
-	got := SumMultiples(10, divisors{3, 5})
-	want := 23
-	if got != want {
-		t.Errorf("got %v want %v", got, want)
+	cases := []struct {
+		Max      int
+		Divisors Divisors
+		MSum     int
+	}{
+		{0, Divisors{}, 0},
+		{10, Divisors{11}, 0},
+		{10, Divisors{3, 5}, 23},
+		{1000, Divisors{3, 5}, 266333},
+	}
+
+	for _, test := range cases {
+		t.Run(fmt.Sprintf("%v", test), func(t *testing.T) {
+			got := SumMultiples(test.Max, test.Divisors)
+			if got != test.MSum {
+				t.Errorf("got %v want %v", got, test.MSum)
+			}
+
+		})
 	}
 }
