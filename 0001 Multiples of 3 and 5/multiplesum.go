@@ -4,10 +4,10 @@ import (
 	"fmt"
 )
 
-//Divisors are used to validate mutliplicity
+// Divisors are used to test for mutliplicity
 type Divisors []int
 
-// SumMultiples sums all integers below `maximum` that are multiples of `divisors`
+// SumMultiples sums all integers below `max` and a multiple of a `divisors`
 func SumMultiples(max int, divisors Divisors) (total int) {
 
 	for i := 1; i < max; i++ {
