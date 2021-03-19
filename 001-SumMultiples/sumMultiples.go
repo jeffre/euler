@@ -9,8 +9,8 @@ import (
 	"strconv"
 )
 
-var ErrInsufficientArgs = errors.New("Minimum of 2 arguments not met")
-var ErrHelp = errors.New("Help flag found")
+var ErrInsufficientArgs = errors.New("minimum of 2 arguments not met")
+var ErrHelp = errors.New("help flag found")
 
 // MultipleSum contains all required values
 type MultipleSum struct {
