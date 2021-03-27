@@ -4,6 +4,8 @@ import (
 	"math"
 )
 
+// PrimeFactors returns the prime factors of n in ascending order. If no prime
+// factors are found then nil is returned instead.
 func PrimeFactors(n int) (primes []int) {
 
 	// There are no integers above the square root of n that can be multiplied
@@ -21,4 +23,18 @@ func PrimeFactors(n int) (primes []int) {
 	}
 
 	return primes
+}
+
+// LargestPrimeFactor returns the single largest prime factor of n. If n is
+// prime then it returns 0
+func LargestPrimeFactor(n int) int {
+
+	pf := PrimeFactors(n)
+
+	if pf == nil {
+		return 0
+	}
+
+	// The largest item in the slice is also the last one
+	return pf[len(pf)-1]
 }
