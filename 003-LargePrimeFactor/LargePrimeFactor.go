@@ -12,18 +12,11 @@ func PrimeFactors(n int) (primes []int) {
 
 	for i := 2; i <= maximum; i++ {
 
-		// If all prime factors have been found than n will have been divided down to 0
-		if n == 0 {
-			break
-		}
-
-		// Test if i is a prime factor
-		if n%i == 0 {
+		// Because the same integer can occur more than once as a prime factor
+		// we will repeat the test while deincrementing n
+		for n%i == 0 {
 			primes = append(primes, i)
 			n /= i
-
-			// Deincrement the loop because n may have i more than once
-			i--
 		}
 	}
 
