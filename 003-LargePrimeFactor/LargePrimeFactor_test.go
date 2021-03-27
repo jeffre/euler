@@ -9,10 +9,10 @@ import (
 func TestPrimeFactors(t *testing.T) {
 
 	tests := map[int][]int{
-		8:            []int{2, 2, 2},
+		8:            {2, 2, 2},
 		17:           nil,
-		13195:        []int{5, 7, 13, 29},
-		600851475143: []int{71, 839, 1471, 6857},
+		13195:        {5, 7, 13, 29},
+		600851475143: {71, 839, 1471, 6857},
 	}
 
 	for n, want := range tests {
