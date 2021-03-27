@@ -1,46 +1,31 @@
-package main
+package euler003
 
 import (
-	"errors"
-	"fmt"
 	"math"
-	"os"
 )
 
-type Primes []int
+func PrimeFactors(n int) (primes []int) {
 
-var ErrNoPrimes = errors.New("no prime factors found")
+	// There are no integers above the square root of n that can be multiplied
+	// together to get n.
+	maximum := int(math.Sqrt((float64(n))))
 
-func (p Primes) Last() (int, error) {
-	if len(p) == 0 {
-		return 0, ErrNoPrimes
-	}
-	return p[len(p)-1], nil
-}
+	for i := 2; i <= maximum; i++ {
 
-func PrimeFactors(n int) (primes Primes) {
-	maximum := math.Ceil(math.Sqrt((float64(n))))
+		// If all prime factors have been found than n will have been divided down to 0
+		if n == 0 {
+			break
+		}
 
-	for i := 2; i < int(maximum); i++ {
-		for n%i == 0 {
+		// Test if i is a prime factor
+		if n%i == 0 {
 			primes = append(primes, i)
-			n = n / i
+			n /= i
+
+			// Deincrement the loop because n may have i more than once
+			i--
 		}
 	}
 
 	return primes
-}
-
-func main() {
-
-	n := 600851475143
-	primes := PrimeFactors(n)
-
-	largest_prime, err := primes.Last()
-	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
-	}
-
-	fmt.Printf("Largest prime factor of %v is %v", n, largest_prime)
 }
