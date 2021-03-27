@@ -1,4 +1,4 @@
-package main
+package euler002
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package main
+package euler001
 
 import (
 	"bytes"

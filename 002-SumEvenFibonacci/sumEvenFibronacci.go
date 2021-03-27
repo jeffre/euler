@@ -1,10 +1,8 @@
-package main
-
-import "fmt"
+package euler002
 
 func SumEvenFibronacci(max int) (total int) {
 
-	// Early return for odd these odd cases
+	// Early return these odd cases
 	switch max {
 	case 0:
 		return 0
@@ -27,9 +25,4 @@ func SumEvenFibronacci(max int) (total int) {
 	}
 
 	return total
-}
-
-func main() {
-	max := 4000000
-	fmt.Println(SumEvenFibronacci(max))
 }
