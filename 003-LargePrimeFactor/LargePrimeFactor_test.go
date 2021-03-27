@@ -30,9 +30,3 @@ func BenchmarkPrimeFactors(b *testing.B) {
 		PrimeFactors(600851475143)
 	}
 }
-
-func BenchmarkPrimeFactors(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		PrimeFactors(600851475143)
-	}
-}
