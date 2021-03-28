@@ -2,6 +2,10 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"os"
+	"path/filepath"
+	"strconv"
 
 	euler1 "github.com/jeffre/euler/001-SumMultiples"
 	euler2 "github.com/jeffre/euler/002-SumEvenFibonacci"
@@ -9,23 +13,66 @@ import (
 	euler4 "github.com/jeffre/euler/004-LargestPalindromeProduct"
 )
 
+const completedProblems = 4
+
+func processArgs(args []string, output io.Writer) {
+
+	// Print usage and quit
+	for _, a := range args {
+		if a == "-h" || a == "--help" {
+			printUsage(output)
+			return
+		}
+	}
+
+	switch len(args) {
+	case 1:
+		solveAll(output)
+	case 2:
+		problem_number, err := strconv.Atoi(args[1])
+		if err != nil {
+			fmt.Fprintf(output, "Error: %q", err)
+			return
+		}
+		answer := solve(problem_number)
+		fmt.Printf("%v\n", answer)
+	default:
+		fmt.Fprintln(output, "Invalid arguments")
+	}
+}
+
+func printUsage(output io.Writer) {
+	execName, _ := os.Executable()
+	execName = filepath.Base(execName)
+	fmt.Fprintf(output, "Usage: %s [PROBLEM_NUMBER]\n", execName)
+}
+
+func solveAll(output io.Writer) {
+	for i := 1; i <= completedProblems; i++ {
+		answer := solve(i)
+		fmt.Fprintf(output, "Problem %v: %v\n", i, answer)
+	}
+}
+
+func solve(problemNumber int) (answer string) {
+	switch problemNumber {
+	case 1:
+		// Answer: 233168
+		return strconv.Itoa(euler1.SumMultiples(1000, []int{3, 5}))
+	case 2:
+		// Answer: 4613732
+		return strconv.Itoa(euler2.SumEvenFibronacci(4000000))
+	case 3:
+		// Answer: 6857
+		return strconv.Itoa(euler3.LargestPrimeFactor(600851475143))
+	case 4:
+		// Answer: 906609
+		return strconv.Itoa(euler4.LargestPalindromeProduct(999).Palindrome)
+	default:
+		return fmt.Sprintf("Problem %v has not been solved yet", problemNumber)
+	}
+}
+
 func main() {
-	// Problem 1
-	answer1 := euler1.MultipleSum{
-		Maximum:  1000,
-		Divisors: []int{3, 5},
-	}.Calc()
-	fmt.Printf("Problem 1: %v\n", answer1) //233168
-
-	// Problem 2
-	answer2 := euler2.SumEvenFibronacci(4000000)
-	fmt.Printf("Problem 2: %v\n", answer2) //4613732
-
-	// Problem 3
-	answer3 := euler3.LargestPrimeFactor(600851475143)
-	fmt.Printf("Problem 3: %v\n", answer3) //6857
-
-	// Problem 2
-	answer4 := euler4.LargestPalindromeProduct(999).Palindrome
-	fmt.Printf("Problem 4: %v\n", answer4) //906609
+	processArgs(os.Args, os.Stdout)
 }
