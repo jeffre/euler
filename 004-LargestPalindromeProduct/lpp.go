@@ -25,12 +25,23 @@ func IsPalindrome(num int) bool {
 func LargestPalindromeProduct(max int) PalindromeProduct {
 	p := PalindromeProduct{0, []int{0, 0}}
 
+	// Iterate backwards from max for the first integer
 	for i := max; i > 0; i-- {
+
+		// Iterate backwards from max for the second integer
 		for j := max; j > 0; j-- {
+
 			ij := i * j
-			if p.Palindrome > ij {
+
+			// If the product of the two integers is less than the current
+			// known palindrome then break out of this loop because subsequent
+			// loops will only be getting smaller
+			if ij < p.Palindrome {
 				break
 			}
+
+			// If it is a palindrome then overwrite p and then break out of
+			// this loop because subsequent loops will only be getting smaller
 			if IsPalindrome(ij) {
 				p.Palindrome = ij
 				p.Products = []int{i, j}
