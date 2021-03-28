@@ -1,88 +1,27 @@
 package euler001
 
 import (
-	"bytes"
-	"errors"
-	"reflect"
-	"strings"
+	"fmt"
 	"testing"
 )
 
-func TestUsage(t *testing.T) {
-	buffer := bytes.Buffer{}
-	printUsage(&buffer)
-	got := buffer.String()
-	want := "Usage:"
-	if !strings.HasPrefix(got, want) {
-		t.Errorf("%q does not start with %q", got, want)
+func TestSumMultiples(t *testing.T) {
+	cases := []struct {
+		max      int
+		divisors []int
+		want     int
+	}{
+		{0, []int{3, 5}, 0},
+		{10, []int{3, 5}, 23},
+		{1000, []int{3, 5}, 233168},
 	}
-}
 
-func TestProcessArgs(t *testing.T) {
-
-	t.Run("Test insufficient args", func(t *testing.T) {
-		args := []string{"foo"}
-		_, err := processArgs(args)
-		if !errors.Is(err, ErrInsufficientArgs) {
-			t.Errorf("got %q wanted %q", err, ErrInsufficientArgs)
-		}
-	})
-
-	t.Run("Test -h flag", func(t *testing.T) {
-		args := []string{"foo", "1", "2", "-h"}
-		_, err := processArgs(args)
-		if !errors.Is(err, ErrHelp) {
-			t.Errorf("got %q wanted %q", err, ErrHelp)
-		}
-	})
-	t.Run("Test --help flag", func(t *testing.T) {
-		args := []string{"foo", "--help"}
-		_, err := processArgs(args)
-		if !errors.Is(err, ErrHelp) {
-			t.Errorf("got %q wanted %q", err, ErrHelp)
-		}
-	})
-
-	t.Run("Test MultipleSum struct", func(t *testing.T) {
-		args := []string{"foo", "10", "3", "5"}
-		got, err := processArgs(args)
-		if err != nil {
-			t.Fatalf("Did not expect error: %+v", err)
-		}
-		want := MultipleSum{
-			Maximum: 10,
-			Divisors: []int{
-				3, 5,
-			},
-		}
-		if !reflect.DeepEqual(got, want) {
-			t.Errorf("got %+v want %+v", got, want)
-		}
-	})
-
-	t.Run("Test MultipleSum.Calc()", func(t *testing.T) {
-		args := []string{"foo", "10", "3", "5"}
-		msum, err := processArgs(args)
-		if err != nil {
-			t.Fatalf("Did not expect error: %+v", err)
-		}
-		got := msum.Calc()
-		want := 23
-		if got != want {
-			t.Errorf("got %v want %v", got, want)
-		}
-	})
-
-	t.Run("Test MultipleSum.Calc() with overlapping divisors", func(t *testing.T) {
-		args := []string{"foo", "10", "3", "5", "6"}
-		msum, err := processArgs(args)
-		if err != nil {
-			t.Fatalf("Did not expect error: %+v", err)
-		}
-		got := msum.Calc()
-		want := 23
-		if got != want {
-			t.Errorf("got %v want %v", got, want)
-		}
-	})
+	for _, test := range cases {
+		t.Run(fmt.Sprintf("%+v", test), func(t *testing.T) {
+			got := SumMultiples(test.max, test.divisors)
+			if got != test.want {
+				t.Errorf("got %v want %v", got, test.want)
+			}
+		})
+	}
 }
