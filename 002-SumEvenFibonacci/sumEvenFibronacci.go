@@ -1,5 +1,7 @@
 package euler002
 
+import "strconv"
+
 func SumEvenFibronacci(max int) (total int) {
 
 	// Early return these odd cases
@@ -25,4 +27,10 @@ func SumEvenFibronacci(max int) (total int) {
 	}
 
 	return total
+}
+
+func Solve() string {
+	max := 4000000
+	answer := SumEvenFibronacci(max)
+	return strconv.Itoa(answer)
 }

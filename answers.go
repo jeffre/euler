@@ -55,19 +55,20 @@ func solveAll(output io.Writer) {
 }
 
 func solve(problemNumber int) (answer string) {
+
 	switch problemNumber {
 	case 1:
 		// Answer: 233168
-		return strconv.Itoa(euler1.SumMultiples(1000, []int{3, 5}))
+		return euler1.Solve()
 	case 2:
 		// Answer: 4613732
-		return strconv.Itoa(euler2.SumEvenFibronacci(4000000))
+		return euler2.Solve()
 	case 3:
 		// Answer: 6857
-		return strconv.Itoa(euler3.LargestPrimeFactor(600851475143))
+		return euler3.Solve()
 	case 4:
 		// Answer: 906609
-		return strconv.Itoa(euler4.LargestPalindromeProduct(999).Palindrome)
+		return euler4.Solve()
 	default:
 		return fmt.Sprintf("Problem %v has not been solved yet", problemNumber)
 	}

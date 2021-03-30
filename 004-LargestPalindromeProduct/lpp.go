@@ -1,5 +1,7 @@
 package euler004
 
+import "strconv"
+
 type PalindromeProduct struct {
 	Palindrome int
 	Products   []int
@@ -30,7 +32,7 @@ func LargestPalindromeProduct(max int) PalindromeProduct {
 
 		// Iterate backwards from i for the second integer. We
 		// use i instead of max because doing so eliminates duplicative
-		// work. 
+		// work.
 		for j := i; j > 0; j-- {
 
 			ij := i * j
@@ -54,4 +56,10 @@ func LargestPalindromeProduct(max int) PalindromeProduct {
 		}
 	}
 	return p
+}
+
+func Solve() string {
+	max := 999
+	answer := LargestPalindromeProduct(max).Palindrome
+	return strconv.Itoa(answer)
 }
