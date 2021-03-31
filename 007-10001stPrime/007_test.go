@@ -20,3 +20,10 @@ func TestPrimeByPos(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkPrimeByPos(b *testing.B) {
+	t := 10001
+	for i := 0; i <= b.N; i++ {
+		PrimeByPos(t)
+	}
+}
