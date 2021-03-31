@@ -13,9 +13,10 @@ import (
 	euler4 "github.com/jeffre/euler/004-LargestPalindromeProduct"
 	euler5 "github.com/jeffre/euler/005-SmallestMultiple"
 	euler6 "github.com/jeffre/euler/006-SumSquareDifference"
+	euler7 "github.com/jeffre/euler/007-10001stPrime"
 )
 
-const completedProblems = 6
+const completedProblems = 7
 
 func processArgs(args []string, output io.Writer) {
 
@@ -77,6 +78,9 @@ func solve(problemNumber int) (answer string) {
 	case 6:
 		// Answer: 25164150
 		return euler6.Solve()
+	case 7:
+		// Answer: 104743
+		return euler7.Solve()
 	default:
 		return fmt.Sprintf("Problem %v has not been solved yet", problemNumber)
 	}
