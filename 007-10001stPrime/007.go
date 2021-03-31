@@ -18,12 +18,10 @@ func PrimeByPos(pos int) int {
 
 	primes := []int{2}
 	for id, val := range p {
-		if val == false {
+		if !val {
 			primes = append(primes, id)
 		}
 	}
-
-	//fmt.Printf("%v: %+v\n", pos, primes)
 
 	return primes[pos]
 }
