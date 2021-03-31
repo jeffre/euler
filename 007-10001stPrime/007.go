@@ -2,7 +2,7 @@ package euler007
 
 import "strconv"
 
-// PrimeByPos retuns the nth prime number (sorted from smallest to largest)
+// PrimeByPos returns the nth largest prime number
 func PrimeByPos(pos int) int {
 
 	// Create a slice of booleans that represents integers from 0 to max. This
