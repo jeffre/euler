@@ -1,13 +1,25 @@
 package euler007
 
-import "strconv"
+import (
+	"math"
+	"strconv"
+)
 
 // PrimeByPos returns the nth largest prime number
 func PrimeByPos(pos int) int {
 
+	// Find the max number that pos number can possibly be
+	var max int
+	if pos < 6 {
+		max = 13
+	} else {
+		f := float64(pos)
+		f = f * (math.Log(f) + math.Log(math.Log(f)))
+		max = int(math.Ceil(f))
+	}
+
 	// Create a slice of booleans that represents integers from 0 to max. This
 	// will be used to map out if they are prime (false) or not prime (true).
-	max := 999999
 	p := make([]bool, max)
 
 	// 0 and 1 are not prime
