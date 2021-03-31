@@ -4,7 +4,7 @@ import "strconv"
 
 // SmallestMultiple find the smallest common multiple of integers that are less
 // than max
-func SmallestMultiple(max int) (s int) {
+func SmallestMultiple(max int) int {
 
 	// Iterate into infinity in increments of the largest divisor
 	for i := max; ; i += max {
@@ -21,12 +21,9 @@ func SmallestMultiple(max int) (s int) {
 		// At this point either all divisors are multiples or one of them is
 		// not and has flipped the boolean back to false.
 		if isMultiple {
-			s = i
-			break
+			return i
 		}
 	}
-
-	return s
 }
 
 func Solve() string {
