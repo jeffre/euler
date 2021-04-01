@@ -1,10 +1,12 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"io"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strconv"
 
 	euler1 "github.com/jeffre/euler/001-SumMultiples"
@@ -17,6 +19,11 @@ import (
 )
 
 const completedProblems = 7
+
+var (
+	ErrNotIntOrFloat = errors.New("solution was not type int or float")
+	ErrNotSolved     = errors.New("solution has not been solved yet")
+)
 
 func processArgs(args []string, output io.Writer) {
 
@@ -37,8 +44,11 @@ func processArgs(args []string, output io.Writer) {
 			fmt.Fprintf(output, "Error: %q", err)
 			return
 		}
-		answer := solve(problem_number)
-		fmt.Printf("%v\n", answer)
+		answer, err := solve(problem_number)
+		if err != nil {
+			fmt.Fprintf(output, "Error: %v\n", err)
+		}
+		fmt.Fprintln(output, answer)
 	default:
 		fmt.Fprintln(output, "Invalid arguments")
 	}
@@ -52,37 +62,47 @@ func printUsage(output io.Writer) {
 
 func solveAll(output io.Writer) {
 	for i := 1; i <= completedProblems; i++ {
-		answer := solve(i)
+		answer, err := solve(i)
+		if err != nil {
+			fmt.Fprintf(output, "Error solving problem %v: %v\n", i, err)
+		}
 		fmt.Fprintf(output, "Problem %v: %v\n", i, answer)
 	}
 }
 
-func solve(problemNumber int) (answer string) {
+func solve(n int) (a interface{}, err error) {
 
-	switch problemNumber {
+	switch n {
 	case 1:
-		// Answer: 233168
-		return euler1.Solve()
+		a = euler1.Solve()
 	case 2:
-		// Answer: 4613732
-		return euler2.Solve()
+		a = euler2.Solve()
 	case 3:
-		// Answer: 6857
-		return euler3.Solve()
+		a = euler3.Solve()
 	case 4:
-		// Answer: 906609
-		return euler4.Solve()
+		a = euler4.Solve()
 	case 5:
-		// Answer: 232792560
-		return euler5.Solve()
+		a = euler5.Solve()
 	case 6:
-		// Answer: 25164150
-		return euler6.Solve()
+		a = euler6.Solve()
 	case 7:
-		// Answer: 104743
-		return euler7.Solve()
+		a = euler7.Solve()
 	default:
-		return fmt.Sprintf("Problem %v has not been solved yet", problemNumber)
+		return nil, ErrNotSolved
+		//a = fmt.Sprintf("Problem %v has not been solved yet", n)
+	}
+
+	// Ensure answer is either an integer or float
+	val := reflect.ValueOf(a)
+	switch val.Kind() {
+	case reflect.Int:
+		return a, nil
+	case reflect.Float32:
+		return a, nil
+	case reflect.Float64:
+		return a, nil
+	default:
+		return nil, ErrNotIntOrFloat
 	}
 }
 

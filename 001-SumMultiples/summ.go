@@ -1,7 +1,5 @@
 package euler001
 
-import "strconv"
-
 // SumMutiples sums all divisors less than max
 func SumMultiples(max int, divisors []int) (total int) {
 
@@ -21,9 +19,8 @@ func SumMultiples(max int, divisors []int) (total int) {
 	return total
 }
 
-func Solve() string {
+func Solve() int {
 	max := 1000
 	divisors := []int{3, 5}
-	answer := SumMultiples(max, divisors)
-	return strconv.Itoa(answer)
+	return SumMultiples(max, divisors)
 }

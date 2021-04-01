@@ -2,7 +2,6 @@ package euler007
 
 import (
 	"math"
-	"strconv"
 )
 
 // PrimeByPos returns the nth largest prime number
@@ -47,6 +46,6 @@ func PrimeByPos(pos int) int {
 	return primes[pos]
 }
 
-func Solve() string {
-	return strconv.Itoa(PrimeByPos(10001))
+func Solve() int {
+	return PrimeByPos(10001)
 }

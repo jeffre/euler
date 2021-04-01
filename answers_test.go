@@ -41,17 +41,17 @@ func TestHelpFlags(t *testing.T) {
 }
 
 func TestSolve(t *testing.T) {
-	cases := map[int]string{
-		1: "233168",
-		2: "4613732",
-		3: "6857",
-		4: "906609",
-		5: "232792560",
-		6: "25164150",
-		7: "104743",
+	cases := map[int]interface{}{
+		1: 233168,
+		2: 4613732,
+		3: 6857,
+		4: 906609,
+		5: 232792560,
+		6: 25164150,
+		7: 104743,
 	}
 	for id, want := range cases {
-		got := solve(id)
+		got, _ := solve(id)
 		if got != want {
 			t.Errorf("got %v want %v", got, want)
 		}
@@ -59,12 +59,11 @@ func TestSolve(t *testing.T) {
 }
 
 func TestCompletedProblems(t *testing.T) {
-	t.Run("non-existant problem", func(t *testing.T) {
+	t.Run("non-existent problem", func(t *testing.T) {
 		id := completedProblems + 1
-		got := solve(id)
-		want := fmt.Sprintf("Problem %v has not been solved yet", id)
-		if got != want {
-			t.Errorf("Got %q want %q", got, want)
+		_, err := solve(id)
+		if err != ErrNotSolved {
+			t.Errorf("Got %q want %q", err, ErrNotSolved)
 		}
 	})
 }

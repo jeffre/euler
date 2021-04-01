@@ -2,7 +2,6 @@ package euler003
 
 import (
 	"math"
-	"strconv"
 )
 
 // PrimeFactors returns the prime factors of n in ascending order. If no prime
@@ -40,8 +39,6 @@ func LargestPrimeFactor(n int) int {
 	return pf[len(pf)-1]
 }
 
-func Solve() string {
-	n := 600851475143
-	answer := LargestPrimeFactor(n)
-	return strconv.Itoa(answer)
+func Solve() int {
+	return LargestPrimeFactor(600851475143)
 }

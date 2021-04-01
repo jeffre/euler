@@ -1,7 +1,5 @@
 package euler005
 
-import "strconv"
-
 // SmallestMultiple find the smallest common multiple of integers that are less
 // than max
 func SmallestMultiple(max int) int {
@@ -26,8 +24,6 @@ func SmallestMultiple(max int) int {
 	}
 }
 
-func Solve() string {
-	max := 20
-	answer := SmallestMultiple(max)
-	return strconv.Itoa(answer)
+func Solve() int {
+	return SmallestMultiple(20)
 }

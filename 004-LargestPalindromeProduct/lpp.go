@@ -1,7 +1,5 @@
 package euler004
 
-import "strconv"
-
 type PalindromeProduct struct {
 	Palindrome int
 	Products   []int
@@ -58,8 +56,6 @@ func LargestPalindromeProduct(max int) PalindromeProduct {
 	return p
 }
 
-func Solve() string {
-	max := 999
-	answer := LargestPalindromeProduct(max).Palindrome
-	return strconv.Itoa(answer)
+func Solve() int {
+	return LargestPalindromeProduct(999).Palindrome
 }

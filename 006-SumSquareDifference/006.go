@@ -1,7 +1,5 @@
 package euler006
 
-import "strconv"
-
 func SumOfSquares(max int) (total int) {
 	for i := 1; i <= max; i++ {
 		total += i * i
@@ -22,8 +20,6 @@ func SumSquareDiff(max int) (total int) {
 	return square - sum
 }
 
-func Solve() string {
-	max := 100
-	answer := SumSquareDiff(max)
-	return strconv.Itoa(answer)
+func Solve() int {
+	return SumSquareDiff(100)
 }
