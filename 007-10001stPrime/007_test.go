@@ -11,6 +11,8 @@ func TestPrimeByPos(t *testing.T) {
 		5:     11,
 		6:     13,
 		10001: 104743,
+		69420: 874651,
+		/*6669420: 116795381,*/
 	}
 
 	for pos, want := range cases {
