@@ -89,7 +89,6 @@ func solve(n int) (a interface{}, err error) {
 		a = euler7.Solve()
 	default:
 		return nil, ErrNotSolved
-		//a = fmt.Sprintf("Problem %v has not been solved yet", n)
 	}
 
 	// Ensure answer is either an integer or float
