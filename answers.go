@@ -16,9 +16,10 @@ import (
 	euler5 "github.com/jeffre/euler/005-SmallestMultiple"
 	euler6 "github.com/jeffre/euler/006-SumSquareDifference"
 	euler7 "github.com/jeffre/euler/007-10001stPrime"
+	euler8 "github.com/jeffre/euler/008-LargestProductInSeries"
 )
 
-const completedProblems = 7
+const completedProblems = 8
 
 var (
 	ErrNotIntOrFloat = errors.New("solution was not type int or float")
@@ -87,6 +88,8 @@ func solve(n int) (a interface{}, err error) {
 		a = euler6.Solve()
 	case 7:
 		a = euler7.Solve()
+	case 8:
+		a = euler8.Solve()
 	default:
 		return nil, ErrNotSolved
 	}
