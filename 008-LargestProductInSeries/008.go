@@ -1,6 +1,7 @@
 package euler008
 
 import (
+	"math/big"
 	"strconv"
 )
 
@@ -28,6 +29,7 @@ const (
 )
 
 // LargestProductInSeries returns the largest product of l adjacent digits
+// This method iterates over NUM as a string
 func LargestProductInSeries(l int) (m int) {
 
 	digits := make([]int, l)
@@ -55,6 +57,52 @@ func LargestProductInSeries(l int) (m int) {
 		if product > max {
 			max = product
 		}
+	}
+
+	return max
+}
+
+// LargestProductInSeries2 returns the largest product of l adjacent digits
+// This method iterates over NUM as a big.Int. It is ~20x slower than the above
+// method.
+func LargestProductInSeries2(l int) (m int) {
+
+	digits := make([]int, l)
+	max := 0
+	remainder := big.NewInt(0)
+	huge := big.NewInt(0)
+
+	// These will be used like constants
+	ZERO := big.NewInt(0)
+	TEN := big.NewInt(10)
+
+	// Injest the 1000 digit number
+	huge.UnmarshalText([]byte(NUM))
+
+	//Int.Cmp returns +1 if Int > y
+	for huge.Cmp(ZERO) > 0 {
+
+		// Pull the 1's digit off of huge using big's modulus function and put
+		// it into remainder
+		huge.DivMod(huge, TEN, remainder)
+
+		// Append the digits slice with the remainder (converted to an int)
+		digits = append(digits, int(remainder.Int64()))
+
+		// Remove one digit from the head of the digits slice
+		digits = digits[1:]
+
+		// Get the product of current digits
+		product := 1
+		for _, d := range digits {
+			product *= d
+		}
+
+		// Set new max
+		if product > max {
+			max = product
+		}
+
 	}
 
 	return max
