@@ -6,12 +6,11 @@ import (
 
 // PythagTriplet takes the sum of the 3 unique integers of a pythagorean
 // triplet and returns a product of a triplet that has the same sum
-func PythagTriplet(s int) int {
+func PythagTriplet(s int) (int, error) {
 
 	// Iterate backward from the maximum possible value for c which is s minus
-	// 3 (this accomodates integers a and b plus the fact they they cannot have
-	// the same value
-	for i := s - 3; i > 0; i-- {
+	// 5 (this accomodates the smallest possible triple 1² + 2²)
+	for i := s - 5; i > 0; i-- {
 		c := i
 
 		// Iterate backward from the remainder of the sum - c - 1. The minus 1
