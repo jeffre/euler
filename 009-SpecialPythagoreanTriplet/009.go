@@ -1,8 +1,11 @@
 package euler009
 
 import (
+	"errors"
 	"math"
 )
+
+var ErrNoMatch = errors.New("pythagorean triplet not found")
 
 // PythagTriplet takes the sum of the 3 unique integers of a pythagorean
 // triplet and returns a product of a triplet that has the same sum
@@ -24,17 +27,18 @@ func PythagTriplet(s int) (int, error) {
 
 			// Check if a² + b² = c²
 			if math.Pow(float64(a), 2)+math.Pow(float64(b), 2) == math.Pow(float64(c), 2) {
-				return int(a * b * c)
+				return int(a * b * c), nil
 			}
 		}
 	}
 
 	// Failed to get an answer
-	return 0
+	return 0, ErrNoMatch
 }
 
 func Solve() int {
-	return PythagTriplet(1000)
+	a, _ := PythagTriplet(1000)
+	return a
 }
 
 /*
