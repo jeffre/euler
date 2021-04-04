@@ -12,8 +12,9 @@ var ErrNoMatch = errors.New("pythagorean triplet not found")
 func PythagTriplet(s int) (int, error) {
 
 	// Iterate backward from the maximum possible value for c which is s minus
-	// 5 (this accomodates the smallest possible triple 1² + 2²)
-	for i := s - 5; i > 0; i-- {
+	// 7 (7 being the sum of the two smallest members of the smallest possible
+	// pythagorean triple 3² + 4² = 5²)
+	for i := s - 7; i > 0; i-- {
 		c := i
 
 		// Iterate backward from the remainder of the sum - c - 1. The minus 1
