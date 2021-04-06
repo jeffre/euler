@@ -22,13 +22,13 @@ func PrimeByPos(pos int) int {
 	// map out if they are prime (false) or not prime (true).
 	s := make([]bool, max)
 
-	// 0 and 1 are not prime
-	s[0] = true
-	s[1] = true
-
-	// Find all values that are the product of two numbers (i and j) less than
-	// max. These values are not prime.
-	for i := 2; i <= max; i++ {
+	// Find all values that are the product of two numbers (i and j) greater
+	// than 1 and less than max. These values are not prime.
+	for i := 1; i < max; i++ {
+		if i == 1 {
+			s[i] = true
+			continue
+		}
 		for j := 2; i*j < max; j++ {
 			s[i*j] = true
 		}
@@ -36,7 +36,7 @@ func PrimeByPos(pos int) int {
 
 	// All untouched booleans are prime. So we iterate over the array, making
 	// note of the position where the prime number was found.
-	primes := []int{2}
+	primes := []int{}
 	for id, val := range s {
 		if !val {
 			primes = append(primes, id)

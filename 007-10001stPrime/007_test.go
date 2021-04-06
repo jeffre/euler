@@ -1,9 +1,13 @@
 package euler007
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestPrimeByPos(t *testing.T) {
 	cases := map[int]int{
+		0:     0,
 		1:     2,
 		2:     3,
 		3:     5,
@@ -16,10 +20,12 @@ func TestPrimeByPos(t *testing.T) {
 	}
 
 	for pos, want := range cases {
-		got := PrimeByPos(pos)
-		if got != want {
-			t.Errorf("got %v want %v", got, want)
-		}
+		t.Run(fmt.Sprintf("Position: %v", pos), func(t *testing.T) {
+			got := PrimeByPos(pos)
+			if got != want {
+				t.Errorf("got %v want %v", got, want)
+			}
+		})
 	}
 }
 
