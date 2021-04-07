@@ -53,6 +53,7 @@ func TestSolve(t *testing.T) {
 		9:  31875000,
 		10: 142913828922,
 		11: 70600674,
+		12: 76576500,
 	}
 	for id, want := range cases {
 		got, _ := solve(id)
