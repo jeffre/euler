@@ -19,9 +19,10 @@ import (
 	euler8 "github.com/jeffre/euler/008-LargestProductInSeries"
 	euler9 "github.com/jeffre/euler/009-SpecialPythagoreanTriplet"
 	euler10 "github.com/jeffre/euler/010-SumOfPrimes"
+	euler11 "github.com/jeffre/euler/011-LargestProductInGrid"
 )
 
-const completedProblems = 10
+const completedProblems = 11
 
 var (
 	ErrNotIntOrFloat = errors.New("solution was not type int or float")
@@ -96,6 +97,8 @@ func solve(n int) (a interface{}, err error) {
 		a = euler9.Solve()
 	case 10:
 		a = euler10.Solve()
+	case 11:
+		a = euler11.Solve()
 	default:
 		return nil, ErrNotSolved
 	}
