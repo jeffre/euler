@@ -4,18 +4,8 @@ import (
 	"math"
 )
 
-// PrimeByPos returns the nth largest prime number
-func PrimeByPos(pos int) int {
-
-	// Find the max number that pos number can possibly be
-	var max int
-	if pos < 6 {
-		max = 13
-	} else {
-		f := float64(pos)
-		f = f * (math.Log(f) + math.Log(math.Log(f)))
-		max = int(math.Ceil(f))
-	}
+// Primes returns an ordered slice of primes up to size max
+func Primes(max int) (primes []int) {
 
 	// Following the algorithm for the Sieve of Eratosthenes, we create a slice
 	// of booleans that represents integers from 0 to max. This will be used to
@@ -36,13 +26,29 @@ func PrimeByPos(pos int) int {
 
 	// All untouched booleans are prime. So we iterate over the array, making
 	// note of the position where the prime number was found.
-	primes := []int{}
 	for id, val := range s {
 		if !val {
 			primes = append(primes, id)
 		}
 	}
 
+	return primes
+}
+
+// PrimeByPos returns the nth largest prime number
+func PrimeByPos(pos int) int {
+
+	// Find the max number that pos number can possibly be
+	var max int
+	if pos < 6 {
+		max = 13
+	} else {
+		f := float64(pos)
+		f = f * (math.Log(f) + math.Log(math.Log(f)))
+		max = int(math.Ceil(f))
+	}
+
+	primes := Primes(max)
 	return primes[pos]
 }
 
