@@ -2,12 +2,20 @@ package euler007
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 )
 
+func TestPrimes(t *testing.T) {
+	got := Primes(10)
+	want := []int{2, 3, 5, 7}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
+}
+
 func TestPrimeByPos(t *testing.T) {
 	cases := map[int]int{
-		0:     0,
 		1:     2,
 		2:     3,
 		3:     5,
