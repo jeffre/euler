@@ -44,7 +44,7 @@ func Solve() int {
 
 /*
 This section contains my scratch notes which might be helpful later on in
-finding an algorhythm.
+finding an algorithm.
 
 Given:
     a+b+c=12      a²+b²=c²
