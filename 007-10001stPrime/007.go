@@ -14,8 +14,8 @@ func Primes(max int) (primes []int) {
 
 	// Find all values that are the product of two numbers (i and j) greater
 	// than 1 and less than max. These values are not prime.
-	for i := 1; i < max; i++ {
-		if i == 1 {
+	for i := 0; i < max; i++ {
+		if i <= 1 {
 			s[i] = true
 			continue
 		}
@@ -36,20 +36,20 @@ func Primes(max int) (primes []int) {
 }
 
 // PrimeByPos returns the nth largest prime number
-func PrimeByPos(pos int) int {
+func PrimeByPos(n int) int {
 
-	// Find the max number that pos number can possibly be
+	// Find the maximum size that position n can possibly be
 	var max int
-	if pos < 6 {
+	if n < 6 {
 		max = 13
 	} else {
-		f := float64(pos)
+		f := float64(n)
 		f = f * (math.Log(f) + math.Log(math.Log(f)))
 		max = int(math.Ceil(f))
 	}
 
 	primes := Primes(max)
-	return primes[pos]
+	return primes[n-1]
 }
 
 func Solve() int {
