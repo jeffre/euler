@@ -1,6 +1,6 @@
 package euler002
 
-func SumEvenFibronacci(max int) (total int) {
+func SumEvenFibonacci(max int) (total int) {
 
 	// Early return these odd cases
 	switch max {
@@ -28,5 +28,5 @@ func SumEvenFibronacci(max int) (total int) {
 }
 
 func Solve() int {
-	return SumEvenFibronacci(4000000)
+	return SumEvenFibonacci(4000000)
 }

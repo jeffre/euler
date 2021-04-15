@@ -76,7 +76,7 @@ func LargestProductInSeries2(l int) (m int) {
 	ZERO := big.NewInt(0)
 	TEN := big.NewInt(10)
 
-	// Injest the 1000 digit number
+	// Ingest the 1000 digit number
 	huge.UnmarshalText([]byte(NUM))
 
 	//Int.Cmp returns +1 if Int > y

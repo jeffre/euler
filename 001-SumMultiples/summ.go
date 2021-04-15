@@ -1,6 +1,6 @@
 package euler001
 
-// SumMutiples sums all divisors less than max
+// SumMultiples sums all divisors less than max
 func SumMultiples(max int, divisors []int) (total int) {
 
 	// Check all integers less than max

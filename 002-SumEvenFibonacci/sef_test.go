@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestSumEvenFibronacci(t *testing.T) {
+func TestSumEvenFibonacci(t *testing.T) {
 	cases := map[int]int{
 		0:       0,
 		1:       0,
@@ -15,7 +15,7 @@ func TestSumEvenFibronacci(t *testing.T) {
 	}
 	for max, sumef := range cases {
 		t.Run(fmt.Sprintf("maximum size %v", max), func(t *testing.T) {
-			got := SumEvenFibronacci(max)
+			got := SumEvenFibonacci(max)
 
 			if got != sumef {
 				t.Errorf("got %v want %v", got, sumef)

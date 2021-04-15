@@ -5,7 +5,7 @@ type PalindromeProduct struct {
 	Products   []int
 }
 
-// Reverse reverses num effeciently by using integer division and modulus
+// Reverse reverses num efficiently by using integer division and modulus
 func Reverse(num int) (reversed int) {
 	for num > 0 {
 		reversed *= 10

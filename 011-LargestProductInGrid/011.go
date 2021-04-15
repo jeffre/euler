@@ -99,7 +99,7 @@ func DownLeft(r, c int) (x []int) {
 
 func path(r, c int, d string) (x []int) {
 
-	// new column and row itegers
+	// new column and new row integers
 	var nc, nr int
 
 	for i := 0; i < L; i++ {
