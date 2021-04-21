@@ -108,6 +108,7 @@ func LargestProductInSeries2(l int) (m int) {
 	return max
 }
 
+// Solve returns the answer for this Project Euler challenge
 func Solve() int {
 	return LargestProductInSeries(13)
 }

@@ -124,7 +124,7 @@ func getNums() (nums []*big.Int) {
 	return nums
 }
 
-// Sum returns the sums of the values of a given slice of big.Int pointers
+// Sum returns the sum of the values of a slice of big.Int pointers
 func Sum(nums []*big.Int) *big.Int {
 	sum := big.NewInt(0)
 	for _, n := range nums {
@@ -133,7 +133,7 @@ func Sum(nums []*big.Int) *big.Int {
 	return sum
 }
 
-// FirstTen gets the first 10 digits of the dereferenced value of a big.Int pointer
+// FirstTen returns the first 10 digits of the value of a big.Int pointer
 func FirstTen(b *big.Int) int {
 	short := b.Text(10)[0:10]
 	i, err := strconv.Atoi(short)
@@ -143,6 +143,7 @@ func FirstTen(b *big.Int) int {
 	return i
 }
 
+// Solve returns the answer for this Project Euler challenge
 func Solve() int {
 	nums := getNums()
 	sum := Sum(nums)

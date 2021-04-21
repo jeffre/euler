@@ -1,5 +1,7 @@
 package euler004
 
+// A PalindromeProduct holds a palindrome and a slice of integers that created
+// it.
 type PalindromeProduct struct {
 	Palindrome int
 	Products   []int
@@ -56,6 +58,7 @@ func LargestPalindromeProduct(max int) PalindromeProduct {
 	return p
 }
 
+// Solve returns the answer for this Project Euler challenge
 func Solve() int {
 	return LargestPalindromeProduct(999).Palindrome
 }

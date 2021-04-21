@@ -1,5 +1,6 @@
 package euler002
 
+// SumEvenFibonacci returns the sum of even fibonacci numbers less than max
 func SumEvenFibonacci(max int) (total int) {
 
 	// Early return these odd cases
@@ -27,6 +28,7 @@ func SumEvenFibonacci(max int) (total int) {
 	return total
 }
 
+// Solve returns the answer for this Project Euler challenge
 func Solve() int {
 	return SumEvenFibonacci(4000000)
 }

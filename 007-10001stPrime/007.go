@@ -52,6 +52,7 @@ func PrimeByPos(n int) int {
 	return primes[n-1]
 }
 
+// Solve returns the answer for this Project Euler challenge
 func Solve() int {
 	return PrimeByPos(10001)
 }

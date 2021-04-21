@@ -37,6 +37,7 @@ func PythagTriplet(s int) (int, error) {
 	return 0, ErrNoMatch
 }
 
+// Solve returns the answer for this Project Euler challenge
 func Solve() int {
 	a, _ := PythagTriplet(1000)
 	return a

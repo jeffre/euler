@@ -39,6 +39,7 @@ func LargestPrimeFactor(n int) int {
 	return pf[len(pf)-1]
 }
 
+// Solve returns the answer for this Project Euler challenge
 func Solve() int {
 	return LargestPrimeFactor(600851475143)
 }

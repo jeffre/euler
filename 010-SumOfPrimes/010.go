@@ -18,6 +18,7 @@ func SumPrimes(max int) (sum int) {
 	return sum
 }
 
+// Solve returns the answer for this Project Euler challenge
 func Solve() int {
 	return SumPrimes(2000000)
 }

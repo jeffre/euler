@@ -73,6 +73,7 @@ func HighlyDivisibleTriangle(n int) (triangle int) {
 	}
 }
 
+// Solve returns the answer for this Project Euler challenge
 func Solve() int {
 	return HighlyDivisibleTriangle(500)
 }

@@ -19,6 +19,7 @@ func SumMultiples(max int, divisors []int) (total int) {
 	return total
 }
 
+// Solve returns the answer for this Project Euler challenge
 func Solve() int {
 	max := 1000
 	divisors := []int{3, 5}

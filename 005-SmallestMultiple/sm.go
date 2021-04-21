@@ -24,6 +24,7 @@ func SmallestMultiple(max int) int {
 	}
 }
 
+// Solve returns the answer for this Project Euler challenge
 func Solve() int {
 	return SmallestMultiple(20)
 }

@@ -161,6 +161,7 @@ func LargestProd() (lProd int) {
 	return lProd
 }
 
+// Solve returns the answer for this Project Euler challenge
 func Solve() int {
 	return LargestProd()
 }
