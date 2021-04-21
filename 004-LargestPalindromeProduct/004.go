@@ -1,4 +1,4 @@
-package euler004
+package euler4
 
 // A PalindromeProduct holds a palindrome and a slice of integers that created
 // it.

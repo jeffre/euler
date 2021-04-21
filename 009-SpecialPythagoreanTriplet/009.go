@@ -1,4 +1,4 @@
-package euler009
+package euler9
 
 import (
 	"errors"

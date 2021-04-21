@@ -1,4 +1,4 @@
-package euler005
+package euler5
 
 // SmallestMultiple find the smallest common multiple of integers that are less
 // than max

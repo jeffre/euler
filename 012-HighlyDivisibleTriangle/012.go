@@ -1,6 +1,6 @@
-package euler012
+package euler12
 
-import euler007 "github.com/jeffre/euler/007-10001stPrime"
+import euler7 "github.com/jeffre/euler/007-10001stPrime"
 
 // DivisorsCnt return the number of divisors for a given number n, provided a
 // slice of prime numbers. Refer to Euler7 for a prime number generator.
@@ -62,7 +62,7 @@ func HighlyDivisibleTriangle(n int) (triangle int) {
 	}
 
 	// Generate a list of all primes less than 65500
-	primes := euler007.Primes(65500)
+	primes := euler7.Primes(65500)
 
 	// Iterate through triangle numbers starting from 1
 	for i := 1; ; i++ {

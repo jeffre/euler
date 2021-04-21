@@ -1,4 +1,4 @@
-package euler006
+package euler6
 
 import "testing"
 

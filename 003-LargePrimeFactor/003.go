@@ -1,4 +1,4 @@
-package euler003
+package euler3
 
 import (
 	"math"

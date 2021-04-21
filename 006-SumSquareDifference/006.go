@@ -1,4 +1,4 @@
-package euler006
+package euler6
 
 // SumOfSquares squares all numbers less than max and then returns their sum.
 func SumOfSquares(max int) (total int) {

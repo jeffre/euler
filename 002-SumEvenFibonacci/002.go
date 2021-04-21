@@ -1,4 +1,4 @@
-package euler002
+package euler2
 
 // SumEvenFibonacci returns the sum of even fibonacci numbers less than max
 func SumEvenFibonacci(max int) (total int) {

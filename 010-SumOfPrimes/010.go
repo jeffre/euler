@@ -1,4 +1,4 @@
-package euler010
+package euler10
 
 import (
 	euler7 "github.com/jeffre/euler/007-10001stPrime"

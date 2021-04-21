@@ -1,4 +1,4 @@
-package euler008
+package euler8
 
 import "testing"
 
