@@ -1,4 +1,7 @@
-euler
-euler.exe
 **/.DS_Store
 /.vscode
+euler
+euler.exe
+euler_darwin_amd64
+euler_linux_amd64
+euler_windows_amd64.exe
